@@ -1,0 +1,23 @@
+{
+  "amazon": {
+    "title": "#productTitle",
+    "promotion_price": "#corePriceDisplay_desktop_feature_div > div.a-section.a-spacing-none.aok-align-center.aok-relative > span.aok-offscreen",
+    "real_price": "#corePriceDisplay_desktop_feature_div > div.a-section.a-spacing-small.aok-align-center > span > span.aok-relative > span.a-size-small.a-color-secondary.aok-align-center.basisPrice > span > span.a-offscreen",
+    "average_rating": "#acrPopover > span > a > span",
+    "ratings_quantity": "#acrCustomerReviewText",
+    "description": "#feature-bullets > ul > li > span",
+    "specifications": [
+      "#productDetails_techSpec_section_1 tr > th",
+      "#productDetails_techSpec_section_1 tr > td"
+    ]
+  },
+  "mercado_livre": {
+    "title": "#ui-pdp-main-container > div.ui-pdp-container__col.col-3.ui-pdp-container--column-center.pb-40 > div > div.ui-pdp-container__row.ui-pdp-with--separator--fluid.ui-pdp-with--separator--40-24 > div.ui-pdp-container__col.col-2.mr-24.mt-8 > div.ui-pdp-container__top-wrapper.mt-40 > div > div.ui-pdp-header__title-container > h1",
+    "promotion_price": "#price > div > div.ui-pdp-price__main-container > div.ui-pdp-price__second-line > span.ui-pdp-price__part__container > span",
+    "real_price": "#price > div > div.ui-pdp-price__main-container > span > s > span.andes-money-amount__fraction",
+    "average_rating": "#ui-pdp-main-container > div.ui-pdp-container__col.col-3.ui-pdp-container--column-center.pb-40 > div > div.ui-pdp-container__row.ui-pdp-with--separator--fluid.ui-pdp-with--separator--40-24 > div.ui-pdp-container__col.col-2.mr-24.mt-8 > div.ui-pdp-container__top-wrapper.mt-40 > div > div.ui-pdp-header__info > a > span.ui-pdp-review__rating",
+    "ratings_quantity": "#ui-pdp-main-container > div.ui-pdp-container__col.col-3.ui-pdp-container--column-center.pb-40 > div > div.ui-pdp-container__row.ui-pdp-with--separator--fluid.ui-pdp-with--separator--40-24 > div.ui-pdp-container__col.col-2.mr-24.mt-8 > div.ui-pdp-container__top-wrapper.mt-40 > div > div.ui-pdp-header__info > a > span.ui-pdp-review__amount",
+    "description": ".ui-pdp-description > p",
+    "specifications": [".andes-table tr > th", ".andes-table tr > td"]
+  }
+}
