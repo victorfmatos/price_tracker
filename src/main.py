@@ -1,4 +1,6 @@
+# type: ignore
 from logic.Scraper import Scraper
+from database.DatabaseManager import DatabaseManager
 from selenium import webdriver
 import json
 
@@ -12,23 +14,23 @@ def main(product_url):
     scraper = Scraper("src/variables.json")
     
     print(f"Buscando dados de: {product_url}")
+        
+    product_data = scraper.scraper_mercado_livre(product_url)
     
-    html_content = scraper.get_html(product_url, driver)
-    
-    if html_content:
-      product_data = scraper.scraper_amazon(html_content)
-      
-      if product_data:
-        print(json.dumps(product_data, indent=2, ensure_ascii=False))
-      else:
-        print("Não foi possível extrair os dados do produto da página.")
+    if product_data:
+      return product_data
     else:
-      print("Falha ao obter o conteúdo HTML da página.")
+      print("Não foi possível extrair os dados do produto da página.")
+      return None
   finally:
     print("\nFinalizando o processo e fechando o navegador...")
     driver.quit()
     
       
 if __name__ == "__main__":
-  main("https://www.amazon.com.br/Samsung-Imersiva-Traseira-Frontal-Android/dp/B0F3M62DY3")
-  
+  data = main("https://www.mercadolivre.com.br/samsung-galaxy-a05s-128gb-dual-sim-tela-infinita-de-67-cor-prata-6gb-ram/p/MLB37699141")
+  db_manager = DatabaseManager()
+  connection = db_manager.connect()
+  db_manager.drop_table()
+  db_manager.create_table()
+  db_manager.insert_data(data)
