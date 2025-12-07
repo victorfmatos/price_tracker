@@ -17,9 +17,9 @@ A ferramenta é capaz de coletar dados de múltiplos sites de e-commerce e proce
   - [x] Criação do Projeto.
   - [x] Configuração do Ambiente.
   - [x] Instalação das Bibliotecas.
-- [ ] Construção da lógica principal de web scraping.
-  - [ ] Criação do Scraper.
-  - [ ] Tratamento de Erros.
+- [x] Construção da lógica principal de web scraping.
+  - [x] Criação do Scraper.
+  - [x] Tratamento de Erros.
 - [ ] Persistência de dados.
   - [ ] Criação da lógica de Banco de Dados.
 - [ ] Desenvolver Análise e Visualização de Dados.
