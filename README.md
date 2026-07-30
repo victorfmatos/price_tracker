@@ -18,8 +18,8 @@ A ferramenta é capaz de coletar dados de múltiplos sites de e-commerce e proce
   - [x] Configuração do Ambiente.
   - [x] Instalação das Bibliotecas.
 - [x] Construção da lógica principal de web scraping.
-  - [x] Criação do Scraper.
-  - [x] Tratamento de Erros.
+  - [ ] Criação do Scraper.
+  - [ ] Tratamento de Erros.
 - [ ] Persistência de dados.
   - [ ] Criação da lógica de Banco de Dados.
 - [ ] Desenvolver Análise e Visualização de Dados.
@@ -46,15 +46,15 @@ A ferramenta é capaz de coletar dados de múltiplos sites de e-commerce e proce
 
 ## 3. Tecnologias Utilizadas
 
-- Python 3.13.7
-  - `requests`: Para requisições HTTP.
-  - `selenium`: Para interagir com navegador.
+- Python 3.13.14
+  - `playwright`: Para interagir com navegador.
+  - `playwright-stealth`: Para interagir com navegador de forma anônima.
   - `beautifulsoup4`: Para parsing de HTML.
   - `pandas`: Para manipulação e análise de dados.
   - `argparse`: Para construção da CLI.
   - `plotly`: Para visualização de dados.
   - `schedule`: Para automação de tarefas.
-  - `NLTK`: Para análise de sentimento.
+  - `leia-br`: Para análise de sentimento em português.
   - `sqlite3`: Para utilização de banco de dados.
   - `smtplib`: Para envio por email.
 
