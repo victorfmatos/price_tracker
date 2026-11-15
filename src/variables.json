@@ -13,8 +13,8 @@
   },
   "mercado_livre": {
     "title": "#ui-pdp-main-container > div.ui-pdp-container__col.col-3.ui-pdp-container--column-center.pb-40 > div > div.ui-pdp-container__row.ui-pdp-with--separator--fluid.ui-pdp-with--separator--40-24 > div.ui-pdp-container__col.col-2.mr-24.mt-8 > div.ui-pdp-container__top-wrapper.mt-40 > div > div.ui-pdp-header__title-container > h1",
-    "promotion_price": "#price > div > div.ui-pdp-price__main-container > div.ui-pdp-price__second-line > span.ui-pdp-price__part__container > span",
-    "real_price": "#price > div > div.ui-pdp-price__main-container > span > s > span.andes-money-amount__fraction",
+    "promotion_price": "#price > div > div.ui-pdp-price__main-container > div.ui-pdp-price__price-breakdown-inline > div.ui-pdp-price__second-line > span.ui-pdp-price__part__container > span.ui-pdp-price__part",
+    "real_price": "#price > div > div.ui-pdp-price__main-container > span.ui-pdp-price__part__container > s.ui-pdp-price__part",
     "average_rating": "#ui-pdp-main-container > div.ui-pdp-container__col.col-3.ui-pdp-container--column-center.pb-40 > div > div.ui-pdp-container__row.ui-pdp-with--separator--fluid.ui-pdp-with--separator--40-24 > div.ui-pdp-container__col.col-2.mr-24.mt-8 > div.ui-pdp-container__top-wrapper.mt-40 > div > div.ui-pdp-header__info > a > span.ui-pdp-review__rating",
     "ratings_quantity": "#ui-pdp-main-container > div.ui-pdp-container__col.col-3.ui-pdp-container--column-center.pb-40 > div > div.ui-pdp-container__row.ui-pdp-with--separator--fluid.ui-pdp-with--separator--40-24 > div.ui-pdp-container__col.col-2.mr-24.mt-8 > div.ui-pdp-container__top-wrapper.mt-40 > div > div.ui-pdp-header__info > a > span.ui-pdp-review__amount",
     "description": ".ui-pdp-description > p",
