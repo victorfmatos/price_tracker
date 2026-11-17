@@ -1,5 +1,3 @@
-# import psycopg2
-# from psycopg2 import Error
 import sqlite3
 from dotenv import load_dotenv
 import json
@@ -13,9 +11,8 @@ class DatabaseManager:
   def connect(self) -> sqlite3.Connection:
     load_dotenv()
     db_name = os.environ.get("DATABASE_NAME")
-    # db_user = os.environ.get("DATABASE_USER")
-    # db_password = os.environ.get("DATABASE_PASSWORD")
-    # db_host = os.environ.get("DATABASE_HOST")
+    if not db_name:
+      raise ValueError("O nome do banco de dados não foi definido no arquivo .env.")
     self.connection = sqlite3.connect(db_name)
     
     print("Conexão com o banco de dados estabelecida.")
