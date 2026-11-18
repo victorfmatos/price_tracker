@@ -7,7 +7,7 @@ from datetime import datetime
 import random
 import json
 import re
-import time
+
 
 class ProductData(TypedDict):
   collection_date: str
@@ -81,33 +81,41 @@ class Scraper:
       return float(clean_str)
     except ValueError:
       raise ValueError(f"Não foi possível converter a string de preço '{price_string}' para float.")
+
+  @staticmethod
+  def _extract_first_match(soup: BeautifulSoup, selector_list: list[str]) -> str:
+    for selector in selector_list:
+      element = soup.select_one(selector)
+      if element and (text := Scraper._extract_text(element)):
+        return text
+    return ""
       
   @staticmethod
-  def _get_json_ld_data_and_html_content(url: str, page: Page) -> BeautifulSoup:
-    time.sleep(random.uniform(4.0, 9.0))
+  def _get_html_content(url: str, page: Page) -> BeautifulSoup:
+    page.wait_for_timeout(random.uniform(4000, 9000))
     
-    page.goto(url, wait_until="domcontentloaded", timeout=30000)
+    page.goto(url, wait_until="load", timeout=30000)
     
     page.mouse.wheel(0, random.randint(300, 700))
-    time.sleep(random.uniform(0.8, 1.8))
+    page.wait_for_timeout(random.uniform(800, 1800))
     
-    html_content = BeautifulSoup(page.content(), "html.parser")
+    page.wait_for_load_state("load")
     
-    return html_content
+    return BeautifulSoup(page.content(), "html.parser")
     
   def scrape_generic_product(self, page_url: str, page: Page) -> ProductData:
     
-    html_content = self._get_json_ld_data_and_html_content(page_url, page)
+    html_content = self._get_html_content(page_url, page)
     
-    selectors = self.selectors["mercado_livre"]
+    selectors = self.selectors["mercado_livre"]["selectors"]
     
     collection_date = datetime.now().isoformat()
-    title = self._extract_text(html_content.select_one(selectors["title"]))
-    raw_real_price = self._clean_price_string(self._extract_text(html_content.select_one(selectors["real_price"])))
-    raw_promotion_price = self._clean_price_string(self._extract_text(html_content.select_one(selectors["promotion_price"])))
-    raw_average_rating = self._extract_text(html_content.select_one(selectors["average_rating"]))
-    raw_ratings_quantity = self._extract_text(html_content.select_one(selectors["ratings_quantity"]))
-    description = self._extract_text(html_content.select_one(selectors["description"]))
+    title = self._extract_first_match(html_content, selectors["title"])
+    raw_real_price = self._clean_price_string(self._extract_first_match(html_content, selectors["real_price"]))
+    raw_promotion_price = self._clean_price_string(self._extract_first_match(html_content, selectors["promotion_price"]))
+    raw_average_rating = self._extract_first_match(html_content, selectors["average_rating"])
+    raw_ratings_quantity = self._extract_first_match(html_content, selectors["ratings_quantity"])
+    description = self._extract_first_match(html_content, selectors["description"])
         
     if raw_real_price == 0.0 and raw_promotion_price > 0.0:
       real_price = raw_promotion_price
